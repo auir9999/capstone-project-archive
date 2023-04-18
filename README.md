@@ -1,4 +1,6 @@
 # Group_14
+NOTE: THIS IS AN ARCHIVE OF THE LAST PUSHES TO THE NOW DELETED ORIGINAL GROUP REPOSITORY  
+
 ## Members
 | Name         | Github      | Email                       | Skype                   |
 | -----------  | ----------- | --------------------------- | ----------------------- |
