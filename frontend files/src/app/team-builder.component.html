@@ -1,0 +1,69 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="padding-left: 2rem;">Create a New Team</h1>
+        </div>
+    </div>
+
+    <ng-container *ngIf="team && units && equips">
+        <form (ngSubmit)='TeamSave()' #f='ngForm'>
+            <div class="border border-white rounded">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="team.teamName">Team Name: </label>
+                            <input class="form-control" id="team.teamName" name="team.teamName" [(ngModel)]="team.teamName"
+                                required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="team.dungeonType">Dungeon Type: </label>
+                            <input class="form-control" id="team.dungeonType" name="team.dungeonType"
+                                [(ngModel)]="team.dungeonType" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="multiselect">Select Team Units: </label>
+                            <select class="form-control" [ngModel]="selectedUnits" multiple size="8" id="multiselect"
+                                name="multiselect" (ngModelChange)="onUnitSelected($event)" required>
+                                <option *ngFor="let u of units">{{u.unitName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border border-white rounded" *ngFor="let u of selectedUnits; let i = index">
+                <div class="row">
+                    <div class="col">
+                        <h5>Unit: {{u}}</h5>
+                        <label class="control-label" for="{{'selectA' + i}}">Slot A: </label>
+                        <select class="form-control" size="4" id="{{'selectA' + i}}"
+                            name="{{'selectA' + i}}" (ngModelChange)="onSlotASelected($event)">
+                            <option *ngFor="let e of equips">{{e.equipName}}</option>
+                        </select>
+                        <label class="control-label" for="{{'selectB' + i}}">Slot B: </label>
+                        <select class="form-control" size="4" id="{{'selectB' + i}}"
+                            name="{{'selectB' + i}}" (ngModelChange)="onSlotBSelected($event)">
+                            <option *ngFor="let e of equips">{{e.equipName}}</option>
+                        </select>
+                        <label class="control-label" for="{{'selectC' + i}}">Slot C: </label>
+                        <select class="form-control" size="4" id="{{'selectC' + i}}"
+                            name="{{'selectC' + i}}" (ngModelChange)="onSlotCSelected($event)">
+                            <option *ngFor="let e of equips">{{e.equipName}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-left: 2rem;">
+                <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">Save</button>&nbsp;
+                <a routerLink="/team" class="btn btn-dark">Back to teams</a>
+            </div>
+        </form>
+    </ng-container>
+
+</div>

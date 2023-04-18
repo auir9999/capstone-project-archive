@@ -1,0 +1,68 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Units</h1>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-primary" routerLink="/unit/add">Add Unit</button>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-primary" routerLink="/unit/addMulti">Add
+        Units</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div class="dropdown" style="margin-top: 2rem;">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+          Filter Units
+        </button>
+        <div class="dropdown-menu">
+          <button class="dropdown-item" type="button" (click)="onSelectFilter('Fire')">Fire</button>
+          <button class="dropdown-item" type="button" (click)="onSelectFilter('Water')">Water</button>
+          <button class="dropdown-item" type="button" (click)="onSelectFilter('Earth')">Earth</button>
+          <button class="dropdown-item" type="button" (click)="onSelectFilter('Light')">Light</button>
+          <button class="dropdown-item" type="button" (click)="onSelectFilter('Dark')">Dark</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="dropdown" style="margin-top: 2rem;">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="sortingDropdown" data-toggle="dropdown">
+          Sort Units
+        </button>
+        <div class="dropdown-menu">
+          <button class="dropdown-item" type="button" (click)="onSelectSort('HPa')">HP Asc</button>
+          <button class="dropdown-item" type="button" (click)="onSelectSort('HPd')">HP Desc</button>
+          <button class="dropdown-item" type="button" (click)="onSelectSort('ATKa')">ATK Asc</button>
+          <button class="dropdown-item" type="button" (click)="onSelectSort('ATKd')">ATK Desc</button>
+          <button class="dropdown-item" type="button" (click)="onSelectSort('DEFa')">DEF Asc</button>
+          <button class="dropdown-item" type="button" (click)="onSelectSort('DEFd')">DEF Desc</button>
+          <button class="dropdown-item" type="button" (click)="onSelectSort('Raritya')">Rarity Asc</button>
+          <button class="dropdown-item" type="button" (click)="onSelectSort('Rarityd')">Rarity Desc</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-secondary" style="margin-top: 2rem;" (click)="resetFilter()">Reset Filter</button>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; margin-bottom: -1rem;">
+    <input class="form-control" placeholder="Search.." [(ngModel)]="term">
+  </div>
+
+</div>
+
+<div class="card-deck">
+  <div class="card" *ngFor='let t of units | filter:term'>
+    <img class="card-img-top" src="{{t.unitImg}}" alt="{{t.unitName}} IMAGE">
+    <div class="card-body">
+      <a routerLink="{{ t.unitName }}" class="btn btn-default">{{ t.unitName }}</a>&nbsp;
+    </div>
+  </div>
+</div>
+
+<button (click)="topFunction()" id="myBtn" title="Go to top">^</button>

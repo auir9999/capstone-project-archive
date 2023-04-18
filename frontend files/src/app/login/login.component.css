@@ -1,0 +1,11 @@
+.card {
+    color: white;
+}
+
+.card-header {
+    background-color: #262626;
+}
+
+.card-body {
+    background-color: #3a3a3a;
+}

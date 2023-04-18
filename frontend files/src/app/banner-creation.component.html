@@ -1,0 +1,40 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="padding-left: 2rem;">Create a New Banner</h1>
+        </div>
+    </div>
+
+    <ng-container *ngIf="newBanner">
+        <form (ngSubmit)='BannerSave()' #f='ngForm'>
+            <div class="border border-white rounded">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="newBanner.bannerName">Banner Name: </label>
+                            <input class="form-control" id="newBanner.bannerName" name="newBanner.bannerName"
+                                [(ngModel)]="newBanner.bannerName" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="multiselect">Select Banner Units: </label>
+                            <select class="form-control" [ngModel]="selectedUnits" multiple size="8" id="multiselect"
+                                name="multiselect" (ngModelChange)="onModelChange($event)" required>
+                                <option *ngFor="let u of units">{{u.unitName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-left: 2rem;">
+                <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">Save</button>&nbsp;
+                <a routerLink="/roll" class="btn btn-dark">Back to roll simulator</a>
+            </div>
+        </form>
+    </ng-container>
+
+</div>

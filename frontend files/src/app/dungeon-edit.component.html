@@ -1,0 +1,64 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="padding-left: 2rem;">Editing Dungeon</h1>
+        </div>
+    </div>
+
+    <ng-container *ngIf="dungeon">
+        <form (ngSubmit)='DungeonSave()' #f='ngForm'>
+            <div class="border border-white rounded">
+                <h4 style="padding-bottom: 1rem;">Basic Info</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="dungeon.dungeonName">Dungeon Name: </label>
+                            <input class="form-control" id="dungeon.dungeonName" name="dungeon.dungeonName"
+                                [(ngModel)]="dungeon.dungeonName" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="dungeon.dungeonType">Dungeon Type: </label>
+                            <input class="form-control" id="dungeon.dungeonType" name="dungeon.dungeonType"
+                                [(ngModel)]="dungeon.dungeonType" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="dungeon.dungeonDetail">Dungeon Detail: </label>
+                            <input class="form-control" id="dungeon.dungeonDetail" name="dungeon.dungeonDetail"
+                                [(ngModel)]="dungeon.dungeonDetail" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="dungeon.dungeonImg">Image URL: </label>
+                            <input class="form-control" id="dungeon.dungeonImg" name="dungeon.dungeonImg"
+                                [(ngModel)]="dungeon.dungeonImg" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="dungeon.dungeonImgType">Image Type URL: </label>
+                            <input class="form-control" id="dungeon.dungeonImgType" name="dungeon.dungeonImgType"
+                                [(ngModel)]="dungeon.dungeonImgType" required autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-left: 2rem;">
+                <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">Save</button>&nbsp;
+                <a routerLink="/dungeon" class="btn btn-dark">Back to dungeons</a>
+            </div>
+        </form>
+    </ng-container>
+
+</div>

@@ -1,0 +1,16 @@
+.row {
+    margin: 2rem;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;    
+    color:white;
+}
+
+.table, .btn {
+    color: white;
+}

@@ -1,0 +1,78 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="padding-left: 2rem;">Editing Weapon</h1>
+        </div>
+    </div>
+
+    <ng-container *ngIf="weapon">
+        <form (ngSubmit)='WeaponSave()' #f='ngForm'>
+            <div class="border border-white rounded">
+                <h4 style="padding-bottom: 1rem;">Basic Info</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="weapon.equipName">Weapon Name: </label>
+                            <input class="form-control" id="weapon.equipName" name="weapon.equipName"
+                                [(ngModel)]="weapon.equipName" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="weapon.equipSlot">Weapon Slot: </label>
+                            <input class="form-control" id="weapon.equipSlot" name="weapon.equipSlot"
+                                [(ngModel)]="weapon.equipSlot" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="weapon.equipType">Weapon Type: </label>
+                            <input class="form-control" id="weapon.equipType" name="weapon.equipType"
+                                [(ngModel)]="weapon.equipType" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="weapon.equipSkill">Weapon Skill: </label>
+                            <input class="form-control" id="weapon.equipSkill" name="weapon.equipSkill"
+                                [(ngModel)]="weapon.equipSkill" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="weapon.equipAbilities">Weapon Abilities: </label>
+                            <input class="form-control" id="weapon.equipAbilities" name="weapon.equipAbilities"
+                                [(ngModel)]="weapon.equipAbilities" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="weapon.equipImg">Image URL: </label>
+                            <input class="form-control" id="weapon.equipImg" name="weapon.equipImg"
+                                [(ngModel)]="weapon.equipImg" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="weapon.equipImgType">Image Type URL: </label>
+                            <input class="form-control" id="weapon.equipImgType" name="weapon.equipImgType"
+                                [(ngModel)]="weapon.equipImgType" required autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-left: 2rem;">
+                <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">Save</button>&nbsp;
+                <a routerLink="/weapon" class="btn btn-dark">Back to weapons</a>
+            </div>
+        </form>
+    </ng-container>
+
+</div>

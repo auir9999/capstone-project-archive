@@ -1,0 +1,228 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="padding-left: 2rem;">Create a New Unit</h1>
+        </div>
+    </div>
+
+    <ng-container *ngIf="newUnit">
+        <form (ngSubmit)='UnitSave()' #f='ngForm'>
+            <div class="border border-white rounded">
+                <h4 style="padding-bottom: 1rem;">Basic Info</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitName">Unit Name: </label>
+                            <input class="form-control" id="newUnit.unitName" name="newUnit.unitName"
+                                [(ngModel)]="newUnit.unitName" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitNName">Unit Nickname: </label>
+                            <input class="form-control" id="newUnit.unitNName" name="newUnit.unitNName"
+                                [(ngModel)]="newUnit.unitNName" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitRole">Unit Role: </label>
+                            <input class="form-control" id="newUnit.unitRole" name="newUnit.unitRole"
+                                [(ngModel)]="newUnit.unitRole" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitTier">Unit Tier: </label>
+                            <input class="form-control" id="newUnit.unitTier" name="newUnit.unitTier"
+                                [(ngModel)]="newUnit.unitTier" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitType">Unit Type: </label>
+                            <input class="form-control" id="newUnit.unitType" name="newUnit.unitType"
+                                [(ngModel)]="newUnit.unitType" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitRace">Unit Race: </label>
+                            <input class="form-control" id="newUnit.unitRace" name="newUnit.unitRace"
+                                [(ngModel)]="newUnit.unitRace" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="newUnit.unitMaxStar">Unit Max Star: </label>
+                    <select class="form-control" id="newUnit.unitMaxStar" name="newUnit.unitMaxStar"
+                        [(ngModel)]="newUnit.unitMaxStar">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitImg">Image URL: </label>
+                            <input class="form-control" id="newUnit.unitImg" name="newUnit.unitImg"
+                                [(ngModel)]="newUnit.unitImg" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitImgType">Image Type URL: </label>
+                            <input class="form-control" id="newUnit.unitImgType" name="newUnit.unitImgType"
+                                [(ngModel)]="newUnit.unitImgType" required autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border border-white rounded">
+                <h4 style="padding-bottom: 1rem;">Stats</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitStatHP">Unit HP: </label>
+                            <input class="form-control" id="newUnit.unitStatHP" name="newUnit.unitStatHP"
+                                [(ngModel)]="newUnit.unitStatHP" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitStatATK">Unit ATK: </label>
+                            <input class="form-control" id="newUnit.unitStatATK" name="newUnit.unitStatATK"
+                                [(ngModel)]="newUnit.unitStatATK" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitStatDEF">Unit DEF: </label>
+                            <input class="form-control" id="newUnit.unitStatDEF" name="newUnit.unitStatDEF"
+                                [(ngModel)]="newUnit.unitStatDEF" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitStatHPB">Unit HP (B): </label>
+                            <input class="form-control" id="newUnit.unitStatHPB" name="newUnit.unitStatHPB"
+                                [(ngModel)]="newUnit.unitStatHPB" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitStatATKB">Unit ATK (B): </label>
+                            <input class="form-control" id="newUnit.unitStatATKB" name="newUnit.unitStatATKB"
+                                [(ngModel)]="newUnit.unitStatATKB" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitStatDEFB">Unit DEF (B): </label>
+                            <input class="form-control" id="newUnit.unitStatDEFB" name="newUnit.unitStatDEFB"
+                                [(ngModel)]="newUnit.unitStatDEFB" required autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border border-white rounded">
+                <h4 style="padding-bottom: 1rem;">Slots</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitSlotA">Unit Slot A: </label>
+                            <input class="form-control" id="newUnit.unitSlotA" name="newUnit.unitSlotA"
+                                [(ngModel)]="newUnit.unitSlotA" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitSlotB">Unit Slot B: </label>
+                            <input class="form-control" id="newUnit.unitSlotB" name="newUnit.unitSlotB"
+                                [(ngModel)]="newUnit.unitSlotB" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitSlotC">Unit Slot C: </label>
+                            <input class="form-control" id="newUnit.unitSlotC" name="newUnit.unitSlotC"
+                                [(ngModel)]="newUnit.unitSlotC" required autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border border-white rounded">
+                <h4 style="padding-bottom: 1rem;">Extra Details</h4>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitSkill">Unit Skill: </label>
+                            <textarea class="form-control" id="newUnit.unitSkill" name="newUnit.unitSkill"
+                                [(ngModel)]="newUnit.unitSkill" required autofocus></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitArts">Unit Arts: </label>
+                            <textarea class="form-control" id="newUnit.unitArts" name="newUnit.unitArts"
+                                [(ngModel)]="newUnit.unitArts" required autofocus></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitTrueArts">Unit True Arts: </label>
+                            <textarea class="form-control" id="newUnit.unitTrueArts" name="newUnit.unitTrueArts"
+                                [(ngModel)]="newUnit.unitTrueArts" required autofocus></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitAbilities">Unit Abilities: </label>
+                            <textarea class="form-control" id="newUnit.unitAbilities" name="newUnit.unitAbilities"
+                                [(ngModel)]="newUnit.unitAbilities" required autofocus></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitMaterials">Unit Materials: </label>
+                            <textarea class="form-control" id="newUnit.unitMaterials" name="newUnit.unitMaterials"
+                                [(ngModel)]="newUnit.unitMaterials" required autofocus></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="newUnit.unitTW">Unit TW: </label>
+                            <textarea class="form-control" id="newUnit.unitTW" name="newUnit.unitTW"
+                                [(ngModel)]="newUnit.unitTW" required autofocus></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-left: 2rem;">
+                <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">Save</button>&nbsp;
+                <a routerLink="/unit" class="btn btn-dark">Back to units</a>
+            </div>
+        </form>
+    </ng-container>
+
+</div>

@@ -1,0 +1,32 @@
+<ng-container *ngIf="dungeon">
+
+  <div class="row">
+    <div class="col-md-8">
+      <h3>DUNGEON: {{dungeon.dungeonName}}</h3>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-primary"
+        routerLink="/dungeon/edit/{{dungeon.dungeonName}}">Edit
+        Dungeon</button>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-danger" (click)="deleteDungeon()">Delete
+        Dungeon</button>
+    </div>
+  </div>
+
+  <p>&nbsp;</p>
+  <div class="card">
+    <img class="card-img-top" src="{{dungeon.dungeonImg}}" alt="{{dungeon.dungeonName}} IMAGE">
+    <div class="card-body">
+      <h5 class="card-title">Name: {{dungeon.dungeonName}}</h5>
+      <p class="card-text">Type: {{dungeon.dungeonType}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <h5 class="card-title">DETAILS</h5>
+        <p class="card-text">{{dungeon.dungeonDetail}}</p>
+      </li>
+    </ul>
+  </div>
+</ng-container>

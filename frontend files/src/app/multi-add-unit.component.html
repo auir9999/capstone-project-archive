@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="padding-left: 2rem;">Add Many Units</h1>
+        </div>
+    </div>
+    <div class="container">
+        <form [formGroup]="multiUnit" (ngSubmit)="onSubmit()">
+            <table class="table table-bordered" formArrayName="units">
+                <tr>
+                    <th>Name</th>
+                    <th>NName</th>
+                    <th>Img</th>
+                    <th width="150px"><button type="button" (click)="addUnit()" class="btn btn-primary">Add
+                            More</button></th>
+                </tr>
+                <tr *ngFor="let units of units().controls; let i=index" [formGroupName]="i">
+                    <td>
+                        <input type="text" formControlName="name" class="form-control">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="nname" class="form-control">
+                    </td>
+                    <td>
+                        <input type="text" formControlName="img" class="form-control">
+                    </td>
+                    <td>
+                        <button (click)="removeUnit(i)" class="btn btn-danger">Remove</button>
+                    </td>
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+        <br />
+    </div>
+</div>

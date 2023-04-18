@@ -1,0 +1,72 @@
+<ng-container *ngIf="unit">
+
+    <div class="row">
+        <div class="col-md-8">
+            <h3>UNIT: {{unit.unitName}}</h3>
+        </div>
+        <div class="col-md-2">
+            <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-primary"
+                routerLink="/unit/edit/{{unit.unitName}}">Edit
+                Unit</button>
+        </div>
+        <div class="col-md-2">
+            <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-danger" (click)="deleteUnit()">Delete
+                Unit</button>
+        </div>
+    </div>
+
+    <p>&nbsp;</p>
+    <div class="card">
+        <img class="card-img-top" src="{{unit.unitImg}}" alt="{{unit.unitName}} IMAGE">
+        <div class="card-body">
+            <h5 class="card-title">NAME: {{unit.unitName}} ({{unit.unitNName}})</h5>
+            <p class="card-text">{{unit.unitRace}}, {{unit.unitType}}, {{unit.unitMaxStar}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <h5 class="card-title">TIER LIST RANKING</h5>
+                <p class="card-text">{{unit.unitTier}}</p>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-title">ROLE</h5>
+                <p class="card-text">{{unit.unitRole}}</p>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-title">STATS</h5>
+                <p class="card-text">ATK: {{unit.unitStatATK}}(+{{unit.unitStatATKB}})</p>
+                <p class="card-text">DEF: {{unit.unitStatDEF}}(+{{unit.unitStatDEFB}})</p>
+                <p class="card-text">HP: {{unit.unitStatHP}}(+{{unit.unitStatHPB}})</p>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-title">SLOTS</h5>
+                <p class="card-text">SLOT 1: {{unit.unitSlotA}}</p>
+                <p class="card-text">SLOT 2: {{unit.unitSlotB}}</p>
+                <p class="card-text">SLOT 3: {{unit.unitSlotC}}</p>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-title">SKILL</h5>
+                <p class="card-text">{{unit.unitSkill}}</p>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-title">ARTS</h5>
+                <p class="card-text">{{unit.unitArts}}</p>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-title">TRUE ARTS</h5>
+                <p class="card-text">{{unit.unitTrueArts}}</p>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-title">PASSIVES</h5>
+                <p class="card-text">{{unit.unitAbilities}}</p>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-title">MATERIALS REQUIRED</h5>
+                <p class="card-text">{{unit.unitMaterials}}</p>
+            </li>
+            <li class="list-group-item">
+                <h5 class="card-title">TRUE WEAPON</h5>
+                <p class="card-text">{{unit.unitTW}}</p>
+            </li>
+        </ul>
+    </div>
+</ng-container>

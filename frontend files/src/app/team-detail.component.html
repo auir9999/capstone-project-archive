@@ -1,0 +1,86 @@
+<ng-container *ngIf="team && dungeons && unitList">
+  <div class="row">
+    <div class="col-md-10">
+      <h3>TEAM: {{team.teamName}}</h3>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-danger" (click)="deleteTeam()"
+        style="margin-top: 2rem;">Delete
+        Team</button>
+    </div>
+  </div>
+  <h3>Dungeon Type: {{team.dungeonType}}</h3>
+  <p>&nbsp;</p>
+  <h3>Units:</h3>
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor='let u of team.teamUnit'>
+        {{getTeamUnit(u.unit)}}
+        <img class="card-img-top" src="{{unit.unitImg}}" alt="{{unit.unitName}} IMAGE">
+        <div class="card-body">
+          <h5 class="card-title">{{unit.unitName}} ({{unit.unitNName}})</h5>
+          <p class="card-text">Race: {{unit.unitRace}}, Type: {{unit.unitType}}, Max stars: {{unit.unitMaxStar}}</p>
+          <h5 class="card-title">STATS</h5>
+          <p class="card-text">ATK: {{unit.unitStatATK}}(+{{unit.unitStatATKB}})</p>
+          <p class="card-text">DEF: {{unit.unitStatDEF}}(+{{unit.unitStatDEFB}})</p>
+          <p class="card-text">HP: {{unit.unitStatHP}}(+{{unit.unitStatHPB}})</p>
+          <h5 class="card-title">EQUIPS</h5>
+          <p class="card-text">Slot A: {{u.unitSlotAEquipped}}</p>
+          <p class="card-text">Slot B: {{u.unitSlotBEquipped}}</p>
+          <p class="card-text">Slot C: {{u.unitSlotCEquipped}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <h4 style="color: white;">Comments</h4>
+
+  <div class="comment-cards" *ngFor="let c of teamComments; index as i">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          {{c.commenterName}}
+        </div>
+      </div>
+      <div class="row" id="{{ 'p' + i }}">
+        <div class="col" id="{{ 'c' + i }}">
+          {{c.commentContent}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          {{c.dateRevised | date : "MMM dd, yyyy h:mm:ss a"}}
+        </div>
+      </div>
+      <div class="row" *ngIf="c.commenterName == _auth.getUser()">
+        <div class="col-md-10">
+          <button type="button" class="btn btn-primary" (click)="editComment(i, c._id, c.commentContent)">Edit
+            comment</button>
+          <button id="{{ 'b' + i }}" type="button" class="btn btn-primary" (click)="saveComment(c._id)"
+            style="margin-left: 1rem;" hidden>Save comment</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-danger" (click)="deleteComment(i, c._id)">Delete
+            comment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="_auth.loggedIn()">
+    <div class="row">
+      <div class="col">
+        <h4 style="text-align: center; margin-top: 2rem;">Add a comment</h4>
+        <textarea [(ngModel)]="newComment.commentContent" class="form-control" rows="4"
+          placeholder="Type a comment..."></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button type="submit" class="btn btn-primary float-right" [disabled]="!newComment.commentContent"
+          style="margin: 1rem;" (click)="postComment()">Post comment</button>
+      </div>
+    </div>
+  </div>
+
+</ng-container>

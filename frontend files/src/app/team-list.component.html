@@ -1,0 +1,24 @@
+<div class="row" style="color: white;margin-top: 2rem;">
+    <div class="col-md-10">
+        <h1>Teams</h1>
+    </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-primary" routerLink="/team/add">Add Team</button>
+    </div>
+</div>
+
+<ng-container *ngIf="dungeons && units">
+    <div class="container-fluid" *ngFor='let t of teams'>
+        <div class="row">
+            <div class="col-md-6" style="text-align: left;">
+                <a routerLink="{{t._id}}" class="btn btn-default">{{t.teamName}}</a>
+            </div>
+            <div class="col-md-6" style="text-align: right;">Dungeon Type: {{ t.dungeonType }}</div>
+        </div>
+        <div class="row unitsList" *ngFor='let u of t.teamUnit'>
+            <div class="col-md-6">{{ u.unit }}</div>
+            <div class="col-md-6">Equips: {{u.unitSlotAEquipped}} | {{u.unitSlotBEquipped}} | {{u.unitSlotCEquipped }}
+            </div>
+        </div>
+    </div>
+</ng-container>

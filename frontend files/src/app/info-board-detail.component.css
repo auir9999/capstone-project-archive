@@ -1,0 +1,15 @@
+.row {
+    margin: 2rem;
+    color: white;
+}
+
+.card {
+    background-color: #262626;
+    color: white;
+    border-color: white;
+}
+
+p {
+    padding: 2rem;
+    white-space: pre-wrap;
+}

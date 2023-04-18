@@ -1,0 +1,60 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Weapons</h1>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-primary" routerLink="/weapon/add">Add
+        Weapon</button>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-primary" routerLink="/weapon/addMulti">Add
+        Weapons</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+          Filter Weapons
+        </button>
+        <div class="dropdown-menu">
+          <button class="dropdown-item" type="button" (click)="onSelectFilter('Physical')">Physical</button>
+          <button class="dropdown-item" type="button" (click)="onSelectFilter('Defense')">Defense</button>
+          <button class="dropdown-item" type="button" (click)="onSelectFilter('Support')">Support</button>
+          <button class="dropdown-item" type="button" (click)="onSelectFilter('Magic')">Magic</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; margin-bottom: -1rem;">
+    <input class="form-control" placeholder="Search.." [(ngModel)]="term">
+  </div>
+
+  <div class="row">
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Weapon Name</th>
+          <th scope="col">Weapon Slot</th>
+          <th scope="col">Weapon Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let t of weapons | filter:term'>
+          <td>
+            <a routerLink="{{ t.equipName }}" class="btn btn-default">{{ t.equipName }}</a>
+          </td>
+          <td class="align-middle">{{ t.equipSlot }}</td>
+          <td class="align-middle">{{ t.equipType }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<button (click)="topFunction()" id="myBtn" title="Go to top">^</button>

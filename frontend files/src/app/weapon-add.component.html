@@ -1,0 +1,78 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="padding-left: 2rem;">Create a New Weapon</h1>
+        </div>
+    </div>
+
+    <ng-container *ngIf="newWeapon">
+        <form (ngSubmit)='WeaponSave()' #f='ngForm'>
+            <div class="border border-white rounded">
+                <h4 style="padding-bottom: 1rem;">Basic Info</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="newWeapon.equipName">Weapon Name: </label>
+                            <input class="form-control" id="newWeapon.equipName" name="newWeapon.equipName"
+                                [(ngModel)]="newWeapon.equipName" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="newWeapon.equipSlot">Weapon Slot: </label>
+                            <input class="form-control" id="newWeapon.equipSlot" name="newWeapon.equipSlot"
+                                [(ngModel)]="newWeapon.equipSlot" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="newWeapon.equipType">Weapon Type: </label>
+                            <input class="form-control" id="newWeapon.equipType" name="newWeapon.equipType"
+                                [(ngModel)]="newWeapon.equipType" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="newWeapon.equipSkill">Weapon Skill: </label>
+                            <input class="form-control" id="newWeapon.equipSkill" name="newWeapon.equipSkill"
+                                [(ngModel)]="newWeapon.equipSkill" required autofocus>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label" for="newWeapon.equipAbilities">Weapon Abilities: </label>
+                            <input class="form-control" id="newWeapon.equipAbilities" name="newWeapon.equipAbilities"
+                                [(ngModel)]="newWeapon.equipAbilities" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="newWeapon.equipImg">Image URL: </label>
+                            <input class="form-control" id="newWeapon.equipImg" name="newWeapon.equipImg"
+                                [(ngModel)]="newWeapon.equipImg" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="control-label" for="newWeapon.equipImgType">Image Type URL: </label>
+                            <input class="form-control" id="newWeapon.equipImgType" name="newWeapon.equipImgType"
+                                [(ngModel)]="newWeapon.equipImgType" required autofocus>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-left: 2rem;">
+                <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">Save</button>&nbsp;
+                <a routerLink="/weapon" class="btn btn-dark">Back to weapons</a>
+            </div>
+        </form>
+    </ng-container>
+
+</div>

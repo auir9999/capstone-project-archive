@@ -1,0 +1,39 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="padding-left: 2rem;">Editing Guide</h1>
+        </div>
+    </div>
+
+    <ng-container *ngIf="infoB">
+        <form (ngSubmit)='infoBoardSave()' #f='ngForm'>
+            <div class="border border-white rounded">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label" for="infoB.infoBoardName">Guide Name: </label>
+                            <input class="form-control" id="infoB.infoBoardName" name="infoB.infoBoardName"
+                                [(ngModel)]="infoB.infoBoardName" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label" for="infoB.infoBoardContent">Guide Details: </label>
+                            <textarea class="form-control" id="infoB.infoBoardContent" rows="10"
+                                name="infoB.infoBoardContent" [(ngModel)]="infoB.infoBoardContent" required
+                                autofocus></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-left: 2rem;">
+                <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">Save</button>&nbsp;
+                <a routerLink="/" class="btn btn-dark">Back to home</a>
+            </div>
+        </form>
+    </ng-container>
+
+</div>

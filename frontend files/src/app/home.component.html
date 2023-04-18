@@ -1,0 +1,25 @@
+<div class="row" style="color: white;margin-top: 2rem;">
+    <div class="col-md-10">
+        <h1>Home</h1>
+    </div>
+    <div class="col-md-2">
+        <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-primary" routerLink="/guide/add">Add Guide</button>
+    </div>
+</div>
+
+<div class="row" style="color: white;margin-top: 2rem;">
+    <div class="col-md-12">
+        <h3>Below you'll find helpful guides for specific scenarios.</h3>
+    </div>
+</div>
+
+<ng-container *ngIf="infoBoards">
+    <div class="container-fluid" *ngFor='let i of infoBoards'>
+        <div class="row">
+            <div class="col-md-6" style="text-align: left;">
+                <a routerLink="/guide/{{i._id}}" class="btn btn-default">{{ i.infoBoardName }}</a>
+            </div>
+            <div class="col-md-6 my-auto" style="text-align: right;">Last revised: {{ i.dateRevised | date : "MMM dd, yyyy h:mm:ss a" }}</div>
+        </div>
+    </div>
+</ng-container>

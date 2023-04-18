@@ -1,0 +1,23 @@
+{
+  "name": "backendgs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ryan wang",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "gridfs-stream": "^1.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongo-gridfs": "^1.1.0",
+    "mongoose": "^5.9.11",
+    "multer": "^1.4.2",
+    "multer-gridfs-storage": "^4.0.3"
+  }
+}

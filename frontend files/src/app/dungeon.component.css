@@ -1,0 +1,22 @@
+.row {
+    margin-top: 2rem;
+    color:white;
+}
+
+.card {
+    margin-bottom: 6rem;
+    background-color: #262626;
+    color: white;
+    border-color: white;
+}
+
+.card-img-top {
+    padding-left: 2rem;
+    padding-top: 2rem;
+    padding-right: 2rem;
+}
+
+li {
+    background-color: #262626;
+    border-color: white;
+}

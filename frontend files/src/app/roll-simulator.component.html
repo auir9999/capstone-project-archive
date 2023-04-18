@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Roll Simulator</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">Roll count: {{rollCount}}</div>
+        <div class="col">Gems used: {{gems}}</div>
+        <div class="col">Total Cost(USD): {{costUSD}}</div>
+        <div class="col">Total Cost(CAD): {{costCAD}}</div>
+    </div>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Select a banner
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button *ngFor='let b of listOfBanners; let i = index' [class.selected]="b === selectedBanner"
+                (click)="onSelect(b)" class="dropdown-item" type="button">{{b.bannerName}}</button>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="selectedBanner">
+        <div class="col-md-10">
+            <h4>Selected Banner: {{selectedBanner.bannerName}}</h4>
+        </div>
+        <div class="col-md-2">
+            <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-danger" (click)="deleteBanner()">Delete
+                Banner</button>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="_auth.isAdmin()">
+        <div class="col">
+            <button type="button" class="btn btn-primary" routerLink="/roll/add">Add Banner</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-dark" (click)="onSinglePull()">Single Pull</button>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-dark" (click)="onMultiPull()">Multi Pull</button>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-dark" (click)="onReset()">Reset</button>
+        </div>
+    </div>
+
+    <div class="card-deck" *ngIf="pulledUnits.length > 1">
+        <div class="card" *ngFor='let u of pulledUnits'>
+            <img class="card-img-top" src="{{u.unitImg}}" alt="{{u.unitName}} IMAGE">
+            <div class="card-body">
+                <a routerLink="/unit/{{u.unitName}}" target="_blank" class="btn btn-default">{{u.unitName}}</a>&nbsp;
+            </div>
+        </div>
+    </div>
+
+    <div class="single-card" *ngIf="pulledUnits.length == 1">
+        <div class="card" *ngFor='let u of pulledUnits'>
+            <img class="card-img-top" src="{{u.unitImg}}" alt="{{u.unitName}} IMAGE">
+            <div class="card-body">
+                <a routerLink="/unit/{{u.unitName}}" target="_blank" class="btn btn-default">{{u.unitName}}</a>&nbsp;
+            </div>
+        </div>
+    </div>
+
+</div>

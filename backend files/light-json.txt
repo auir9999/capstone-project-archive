@@ -1,0 +1,20 @@
+{
+	"unitName":"Naofumi Iwantani",
+	"unitNName":"naofumi",
+	"unitImg":"https://github.com/auir9999/GS_files/blob/master/naofumi.png",
+}
+{
+	"unitName":"Raphtalia",
+	"unitNName":"raphtalia",
+	"unitImg":"https://github.com/auir9999/GS_files/blob/master/raphtalia.png",
+}
+{
+	"unitName":"Melty",
+	"unitNName":"shmelty",
+	"unitImg":"https://github.com/auir9999/GS_files/blob/master/melty.png",
+}
+{
+	"unitName":"Filo",
+	"unitNName":"filo",
+	"unitImg":"https://github.com/auir9999/GS_files/blob/master/filo.png",
+}

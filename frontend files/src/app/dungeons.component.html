@@ -1,0 +1,59 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Dungeons</h1>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-primary" routerLink="/dungeon/add">Add
+        Dungeon</button>
+    </div>
+    <div class="col-md-2">
+      <button *ngIf="_auth.isAdmin()" type="button" class="btn btn-primary" routerLink="/dungeon/addMulti">Add
+        Dungeons</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+          Filter Dungeons
+        </button>
+        <div class="dropdown-menu">
+          <button class="dropdown-item" type="button" (click)="onSelectFilter('DOT')">Dungeon of Trial</button>
+          <button class="dropdown-item" type="button" (click)="onSelectFilter('ER')">Element Ruins</button>
+          <button class="dropdown-item" type="button" (click)="onSelectFilter('UL')">Ultra Luck</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; margin-bottom: -1rem;">
+    <input class="form-control" placeholder="Search.." [(ngModel)]="term">
+  </div>
+
+  <div class="row">
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Dungeon Name</th>
+          <th scope="col">Dungeon Detail</th>
+          <th scope="col">Dungeon Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let t of dungeons | filter:term'>
+          <td>
+            <a routerLink="{{ t.dungeonName }}" class="btn btn-default">{{ t.dungeonName }}</a>&nbsp;
+          </td>
+          <td class="align-middle">{{ t.dungeonDetail }}</td>
+          <td class="align-middle">{{ t.dungeonType }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<button (click)="topFunction()" id="myBtn" title="Go to top">^</button>
