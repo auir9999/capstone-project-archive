@@ -5,7 +5,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 const { unitEnglish, equipmentEnglish, teamEnglish, dungeonEnglish, comment, banner, infoBoard } = require('./schema.js');
 
-const urlAtlas = "mongodb+srv://user:password/GS?retryWrites=true&w=majority";
+const urlAtlas = "mongodb+srv://user:password/GS?retryWrites=true&w=majority"; 
 //use github
 
 module.exports = function () {
